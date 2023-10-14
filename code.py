@@ -10,6 +10,7 @@
 #define e1 9  //Right Motor Enable Pin EA
 #define e2 10 //Left Motor Enable Pin EB
 #define s 155  // max speed 
+
 void setup() {
   pinMode(m1, OUTPUT);
   pinMode(m2, OUTPUT);
@@ -24,7 +25,6 @@ void setup() {
   pinMode(ir5, INPUT);
 
   Serial.begin(9600);
-
 }
 
 void loop() {
@@ -33,31 +33,32 @@ void loop() {
   int s3= digitalRead(ir3);
   int s4= digitalRead(ir4);
   int s5= digitalRead(ir5);
-    Serial.println(s1);
-Serial.println(s1);
-Serial.println(s2);
-Serial.println(s3);
-Serial.println(s4);
-Serial.println(s5);
+  Serial.println(s1);
+  Serial.println(s1);
+  Serial.println(s2);
+  Serial.println(s3);
+  Serial.println(s4);
+  Serial.println(s5);
   
 
-  // put your main code here, to run repeatedly:
-  // forward 
+// put your main code here, to run repeatedly:
+// forward 
 //  bool ultra=(d1<=200 && d2 <=200);
-   if(((s1 == 0) && (s2 == 0) && (s3 == 1) && (s4 == 0) && (s5 == 0))){
-      analogWrite(e1, s-20); 
-   analogWrite(e2, s-20);
-    digitalWrite(m1, LOW);
-    digitalWrite(m2, HIGH);
-    digitalWrite(m3, HIGH);
-    digitalWrite(m4,LOW);
-    
-    delay(10);
-   }
    
-   // right turn 
-    if(((s1 == 1) && (s2 == 1) && (s3 == 1) && (s4 == 0) && (s5 == 0))){
-      delay(250);
+if(((s1 == 0) && (s2 == 0) && (s3 == 1) && (s4 == 0) && (s5 == 0))){
+  nalogWrite(e1, s-20); 
+  analogWrite(e2, s-20);
+  digitalWrite(m1, LOW);
+  digitalWrite(m2, HIGH);
+  digitalWrite(m3, HIGH);
+  digitalWrite(m4,LOW);
+    
+  delay(10);
+}
+   
+// right turn 
+if(((s1 == 1) && (s2 == 1) && (s3 == 1) && (s4 == 0) && (s5 == 0))){
+  delay(250);
 //      if((s1 == 0) && (s2 == 0) && (s3 == 0) && (s4 == 0) && (s5 == 0)){
        analogWrite(e1, s-20); //you can adjust the speed of the motors from 0-255
      digitalWrite(m1, LOW);
